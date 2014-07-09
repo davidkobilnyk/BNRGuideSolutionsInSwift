@@ -13,17 +13,19 @@ of the File's Owner in the Identity Inspector. More specifically, do this in the
 Custom Class area, *not the first*. The first one will then auto-populate with the
 "mangled name". IBOutlets didn't work for me until I corrected this.*/
 class BNRQuizViewController: UIViewController {
-    var currentQuestionIndex = 0
-    var questions = [
+    
+    var currentQuestionIndex = 0 // using var for currentQuestionIndex since this num will change
+    let questions = [ // using let for the arrays since we won't need to change them
         "From what is cognac made?",
         "What is 7+7?",
         "What is the capital of Vermont?",
     ]
-    var answers = [
+    let answers = [
         "Grapes",
         "14",
         "Montpelier",
-    ]
+    ] // using default property values here instead of initializing the arrays in init
+    
     @IBOutlet var questionLabel: UILabel
     @IBOutlet var answerLabel: UILabel
     
@@ -39,8 +41,11 @@ class BNRQuizViewController: UIViewController {
         // Step to the next question
         self.currentQuestionIndex++
         
-        // Am I past the last question? If yes, go back to the first question
-        self.currentQuestionIndex %= self.questions.count
+        // Am I past the last question?
+        if (self.currentQuestionIndex == self.questions.count) {
+            // Go back to the first question
+            self.currentQuestionIndex = 0
+        }
         
         // Get the string at the index in the questions array
         var question = self.questions[self.currentQuestionIndex]
