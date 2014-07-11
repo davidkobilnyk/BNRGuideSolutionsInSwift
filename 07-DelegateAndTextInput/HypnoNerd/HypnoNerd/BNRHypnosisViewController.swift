@@ -65,7 +65,7 @@ class BNRHypnosisViewController: UIViewController, UITextFieldDelegate {
     }
     
     func drawHypnoticMessage(message: NSString) {
-        for _ in 0..20 { // use _ since we don't need the value anywhere
+        for _ in 0..<20 { // use _ since we don't need the value anywhere
             let messageLabel = UILabel()
             
             // Configure the label's colors and text
@@ -87,7 +87,7 @@ class BNRHypnosisViewController: UIViewController, UITextFieldDelegate {
             
             // Update the label's frame
             var frame = messageLabel.frame
-            frame.origin = CGPointMake(Float(x), Float(y));
+            frame.origin = CGPointMake(CGFloat(x), CGFloat(y));
             messageLabel.frame = frame
             
             // Add the label to the hierarchy

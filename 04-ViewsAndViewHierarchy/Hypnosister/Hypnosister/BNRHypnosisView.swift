@@ -26,14 +26,14 @@ class BNRHypnosisView: UIView {
         center.y = bounds.origin.y + bounds.size.height / 2.0
         
         // The largest circle will circumscribe the view
-        var maxRadius = hypotf(bounds.size.width, bounds.size.height) / 2.0
+        var maxRadius = hypotf(Float(bounds.size.width), Float(bounds.size.height)) / 2.0
         
         let path = UIBezierPath()
         
         for var currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20 {
-            path.moveToPoint(CGPointMake(center.x + currentRadius, center.y))
+            path.moveToPoint(CGPointMake(center.x + CGFloat(currentRadius), center.y))
             
-            path.addArcWithCenter(center, radius: currentRadius, startAngle: 0.0, endAngle: Float(M_PI) * 2.0, clockwise: true)
+            path.addArcWithCenter(center, radius: CGFloat(currentRadius), startAngle: 0.0, endAngle: CGFloat(M_PI) * 2.0, clockwise: true)
         }
         
         // Configure line width to 10 points
