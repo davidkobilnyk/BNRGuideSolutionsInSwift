@@ -52,7 +52,7 @@ class BNRItemsViewController: UITableViewController {
         
         let item = itemStore.allItems[indexPath.row]
         
-        cell.textLabel.text = item.description()
+        cell.textLabel.text = item.description
         
         return cell
     }

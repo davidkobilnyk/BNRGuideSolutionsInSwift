@@ -13,6 +13,9 @@ class BNRItem {
     let serialNumber: String
     let valueInDollars: Int
     let dateCreated: NSDate
+    var description: String { // Computed property instead of method
+        return "\(self.itemName) (\(self.serialNumber)): Worth $\(self.valueInDollars), recorded on \(self.dateCreated)"
+    }
     
     class func randomItem() -> BNRItem {
         
@@ -74,10 +77,5 @@ class BNRItem {
     
     deinit {
         println("Destroyed: \(self)")
-    }
-    
-    func description() -> String {
-        let descriptionString = "\(itemName) (\(serialNumber)): Worth \(valueInDollars), recorded on \(dateCreated)"
-        return descriptionString
     }
 }

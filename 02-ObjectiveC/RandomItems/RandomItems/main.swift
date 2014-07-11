@@ -8,12 +8,12 @@
 
 import Foundation
 
-items = []
-for _ in 0..10 {
+var items: [BNRItem] = []
+for _ in 0..<10 {
     let item = BNRItem.randomItem()
     items += item
 }
 
 for item in items {
-    print(item)
+    println(item.description)
 }

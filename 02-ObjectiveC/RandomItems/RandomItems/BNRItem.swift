@@ -13,11 +13,32 @@ class BNRItem {
     var serialNumber: String
     var valueInDollars: Int
     var dateCreated: NSDate
-    var description: String {
+    var description: String { // Swift Computed property instead of method
         return "\(self.itemName) (\(self.serialNumber)): Worth $\(self.valueInDollars), recorded on \(self.dateCreated)"
     }
     
-    class func randomItem() {
+    class func randomItem() -> BNRItem {
+        
+        // Define helper functions for creating a random serial number.
+        // Interestingly, generating random characters seems more complicated
+        //in Swift than in Objective-C. Sticking closer to Objective-C's way
+        //didn't work for me and in fact caused Xcode to halt ("Building..."
+        //forever). But I don't know -- maybe there's an easier way.
+        func randomLetter() -> Character {
+            // Originally I coded a more generic function that took a starting
+            //character and number of characters. But oddly UnicodeScalarValue
+            //is only working on literals for me -- not on variables.
+            let startingUnicodeScalarValue = UnicodeScalarValue("A")
+            let numberOfLetters = 26
+            let randomUnicodeScalarValue = Int(startingUnicodeScalarValue) + Int(arc4random()) % numberOfLetters
+            return Character(UnicodeScalar(randomUnicodeScalarValue))
+        }
+        func randomDigit() -> Character {
+            let startingUnicodeScalarValue = UnicodeScalarValue("0")
+            let numberOfPossibleDigits = 10
+            let randomUnicodeScalarValue = Int(startingUnicodeScalarValue) + Int(arc4random()) % numberOfPossibleDigits
+            return Character(UnicodeScalar(randomUnicodeScalarValue))
+        }
         
         // Create an immutable array of three adjectives
         let randomAdjectiveList = ["Fluffy", "Rusty", "Shiny"]
@@ -37,11 +58,10 @@ class BNRItem {
         
         let randomValue = Int(arc4random()) % 100
         
-        let randomSerialNumber = ("0" + Int(arc4random()) % 10) +
-            ("A" + Int(arc4random()) % 26) +
-            ("0" + Int(arc4random()) % 10) +
-            ("A" + Int(arc4random()) % 26) +
-            ("0" + Int(arc4random()) % 10)
+        let randomSerialNumber = randomLetter() + randomDigit() + randomLetter() + randomDigit() + randomLetter()
+        
+        let newItem = BNRItem(itemName: randomName, valueInDollars: randomValue, serialNumber: randomSerialNumber)
+        return newItem
         
     }
     
@@ -52,11 +72,11 @@ class BNRItem {
         self.dateCreated = NSDate()
     }
     
-    init(itemName: String) {
+    convenience init(itemName: String) {
         self.init(itemName: itemName, valueInDollars: 0, serialNumber: "")
     }
     
-    init() {
+    convenience init() {
         self.init(itemName: "Item")
     }
 }
