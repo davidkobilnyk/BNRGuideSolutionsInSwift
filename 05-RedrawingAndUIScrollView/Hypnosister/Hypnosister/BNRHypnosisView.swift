@@ -32,14 +32,15 @@ class BNRHypnosisView: UIView {
         center.y = bounds.origin.y + bounds.size.height / 2.0
         
         // The largest circle will circumscribe the view
-        var maxRadius = hypotf(bounds.size.width, bounds.size.height) / 2.0
+        var maxRadius = hypotf(Float(bounds.size.width), Float(bounds.size.height)) / 2.0
         
         let path = UIBezierPath()
         
         for var currentRadius = maxRadius; currentRadius > 0; currentRadius -= 20 {
-            path.moveToPoint(CGPointMake(center.x + currentRadius, center.y))
+            // Have to cast to CGFloat in Swift a lot to work with Cocoa libraries
+            path.moveToPoint(CGPointMake(center.x + CGFloat(currentRadius), center.y))
             
-            path.addArcWithCenter(center, radius: currentRadius, startAngle: 0.0, endAngle: Float(M_PI) * 2.0, clockwise: true)
+            path.addArcWithCenter(center, radius: CGFloat(currentRadius), startAngle: 0.0, endAngle: CGFloat(M_PI) * 2.0, clockwise: true)
         }
         
         // Configure line width to 10 points
@@ -61,7 +62,7 @@ class BNRHypnosisView: UIView {
         let green = randomNumber()
         let blue = randomNumber()
         
-        let randomColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        let randomColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: 1.0)
         // UIColor.colorWithRed "is unavailable: use object
         //construction 'UIColor(red:green:blue:alpha:)'"
         
