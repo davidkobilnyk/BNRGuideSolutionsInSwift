@@ -158,6 +158,7 @@
 				TargetAttributes = {
 					6CC8AA381968BC5E00BD155A = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = 89UP8358TN;
 					};
 					6CC8AA451968BC5E00BD155A = {
 						CreatedOnToolsVersion = 6.0;
@@ -385,6 +386,7 @@
 				6CC8AA521968BC5E00BD155A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6CC8AA531968BC5E00BD155A /* Build configuration list for PBXNativeTarget "QuizTests" */ = {
 			isa = XCConfigurationList;
@@ -393,6 +395,7 @@
 				6CC8AA551968BC5E00BD155A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

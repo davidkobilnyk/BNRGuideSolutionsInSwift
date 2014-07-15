@@ -9,12 +9,10 @@
 import UIKit
 
 /*In Interface Builder, make sure you specify BNRQuizViewController as the Custom Class
-of the File's Owner in the Identity Inspector. More specifically, do this in the *second*
-Custom Class area, *not the first*. The first one will then auto-populate with the
-"mangled name". IBOutlets didn't work for me until I corrected this.*/
+of the File's Owner in the Identity Inspector.*/
 class BNRQuizViewController: UIViewController {
     
-    var currentQuestionIndex = 0 // using var for currentQuestionIndex since this num will change
+    var currentQuestionIndex = 0 // using var for currentQuestionIndex since it will be updated later
     let questions = [ // using let for the arrays since we won't need to change them
         "From what is cognac made?",
         "What is 7+7?",
@@ -24,11 +22,13 @@ class BNRQuizViewController: UIViewController {
         "Grapes",
         "14",
         "Montpelier",
-    ] // using default property values here instead of initializing the arrays in init
+    ] // using default property values here instead of initializing in init
     
+    // @IBOutlet defaults data members as weak and implicitly unwrapped
     @IBOutlet var questionLabel: UILabel
     @IBOutlet var answerLabel: UILabel
     
+    // Need this init in order to load from xib
     init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibName, bundle: nibBundleOrNil)
     }
@@ -37,6 +37,7 @@ class BNRQuizViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // This is hooked up to questionLabel in the xib file
     @IBAction func showQuestionButtonPressed(sender: UIButton) {
         // Step to the next question
         self.currentQuestionIndex++
