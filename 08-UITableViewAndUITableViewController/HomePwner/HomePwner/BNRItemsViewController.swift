@@ -10,10 +10,6 @@ import UIKit
 
 class BNRItemsViewController: UITableViewController {
     
-    let itemStore = BNRItemStore()
-    // Declaring itemStore here because class variables are not supported yet.
-    // See BNRItemStore for more info.
-    
     // Need to add this init in in Swift, or you get "fatal error: use of unimplemented initializer 'init(nibName:bundle:)' for class"
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -22,7 +18,7 @@ class BNRItemsViewController: UITableViewController {
     init() {
         super.init(style: UITableViewStyle.Plain)
         for _ in 0..<5 {
-            itemStore.createItem()
+            BNRItemStore.sharedStore.createItem()
         }
         println("sizeof(Int) = \(sizeof(Int))")
     }
@@ -39,7 +35,7 @@ class BNRItemsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int)->Int {
-        return itemStore.allItems.count
+        return BNRItemStore.sharedStore.allItems.count
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
@@ -50,7 +46,7 @@ class BNRItemsViewController: UITableViewController {
         // that is at the nth index of items, where n = row this cell
         // will appear in on the tableview
         
-        let item = itemStore.allItems[indexPath.row]
+        let item = BNRItemStore.sharedStore.allItems[indexPath.row]
         
         cell.textLabel.text = item.description
         
