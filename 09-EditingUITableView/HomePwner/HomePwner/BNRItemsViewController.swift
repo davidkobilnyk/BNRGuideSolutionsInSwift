@@ -10,7 +10,19 @@ import UIKit
 
 class BNRItemsViewController: UITableViewController {
     
-    @IBOutlet var headerView: UIView
+    var _headerView: UIView?
+    @IBOutlet var headerView: UIView {
+    get {
+        if !_headerView {
+            // Load HeaderView.xib
+            NSBundle.mainBundle().loadNibNamed("HeaderView", owner: self, options: nil)
+        }
+        return _headerView
+    }
+    set {
+        _headerView = newValue
+    }
+    }
     
     // Need to add this init in in Swift, or you get "fatal error: use of unimplemented initializer 'init(nibName:bundle:)' for class"
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -30,11 +42,6 @@ class BNRItemsViewController: UITableViewController {
         
         // Use .self to get the class. It's equivalent to [UITableViewCell class] in Objective-C.
         tableView!.registerClass(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-        
-        if !self.headerView {
-            // Load HeaderView.xib
-            NSBundle.mainBundle().loadNibNamed("HeaderView", owner: self, options: nil)
-        }
         
         let header: UIView = self.headerView
         tableView.tableHeaderView = header
