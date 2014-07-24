@@ -25,8 +25,8 @@ class BNRQuizViewController: UIViewController {
     ] // using default property values here instead of initializing in init
     
     // @IBOutlet defaults data members as weak and implicitly unwrapped
-    @IBOutlet var questionLabel: UILabel
-    @IBOutlet var answerLabel: UILabel
+    @IBOutlet var questionLabel: UILabel!
+    @IBOutlet var answerLabel: UILabel!
     
     // Need this init in order to load from xib
     init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
