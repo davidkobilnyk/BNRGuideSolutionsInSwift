@@ -9,7 +9,7 @@
 import UIKit
 
 class BNRReminderViewController: UIViewController {
-    @IBOutlet var datePicker: UIDatePicker
+    @IBOutlet var datePicker: UIDatePicker!
     
     init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
