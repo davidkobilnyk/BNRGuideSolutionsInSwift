@@ -92,6 +92,6 @@ class BNRItem {
     }
     
     deinit { // deinit doesn't seem to be getting called
-        println("Destroyed: \(self)")
+        println("Destroyed: \(self.description)")
     }
 }

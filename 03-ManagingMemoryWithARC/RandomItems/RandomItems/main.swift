@@ -9,25 +9,33 @@
 import Foundation
 
 // Create a mutable array object
-var items: [BNRItem?] = []
+var items: [BNRItem?]? = []
 
 var backpack: BNRItem? = BNRItem(itemName: "Backpack")
-items += backpack
-// tried making items [BNRItem?]?, but then I get: "Immutable value of type '[BNRItem?]' only has mutating members named 'append'"
+// need to get a variable unwrapped items; using ! gives us a constant/immutable unwrapped items
+if var actualItems = items {
+    actualItems += backpack
+    // have to assign actualItems back to items because items wasn't actually modified
+    items = actualItems
+}
 
 var calculator: BNRItem? = BNRItem(itemName: "Calculator")
-items += calculator
+if var actualItems = items {
+    actualItems += calculator
+    items = actualItems
+}
 
 backpack!.containedItem = calculator
 
 backpack = nil
 calculator = nil
-// deinits are not getting called. hmmm ...
 
-for item in items {
-    println(item!.description)
+if var actualItems = items {
+    for item in actualItems {
+        println(item!.description)
+    }
 }
 
 // Destroy the mutable array object
 println("Setting items to nil")
-//items = nil
+items = nil
