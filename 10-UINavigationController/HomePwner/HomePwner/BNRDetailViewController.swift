@@ -68,8 +68,10 @@ class BNRDetailViewController: UIViewController {
         if var item = self.item {
             item.itemName = self.nameField.text;
             item.serialNumber = self.serialNumberField.text;
-            item.valueInDollars = self.valueField.text.toInt()!
-            // This int conversion could cause app to crash if user enters a non-integer
+            // Let's play it safe and check if the valueField actually has an int.
+            if let integer = self.valueField.text.toInt() {
+                item.valueInDollars = integer
+            }
         }
     }
 }
