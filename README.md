@@ -6,4 +6,6 @@ Converting the Objective-C solutions of iOS Programming: The Big Nerd Ranch Guid
 http://www.bignerdranch.com/we-write/ios-programming.html<br/>
 http://developer.apple.com/swift
 
-TODO: Need to update all of the projects for beta 4.
+Up to date with beta 4 changes:
+IBOutlets require explicit ? or !
+Can't convert UInt32 directly to CGFloat: have to convert UInt32 to UInt to CGFloat
