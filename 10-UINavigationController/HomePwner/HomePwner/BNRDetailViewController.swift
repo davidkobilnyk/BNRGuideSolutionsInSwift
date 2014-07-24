@@ -12,10 +12,14 @@ import UIKit
 class BNRDetailViewController: UIViewController {
     var item: BNRItem? = nil
     
-    @IBOutlet var nameField: UITextField
-    @IBOutlet var serialNumberField: UITextField
-    @IBOutlet var valueField: UITextField
-    @IBOutlet var dateLabel: UILabel
+    @IBOutlet var nameField: UITextField!
+    @IBOutlet var serialNumberField: UITextField!
+    @IBOutlet var valueField: UITextField!
+    @IBOutlet var dateLabel: UILabel!
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
