@@ -76,6 +76,6 @@ class BNRItem {
     }
     
     deinit {
-        println("Destroyed: \(self)")
+        println("Destroyed: \(self.description)")
     }
 }
