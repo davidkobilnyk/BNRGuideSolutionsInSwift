@@ -18,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         // Override point for customization after application launch.
         
+        // In iOS8, you have to get permission from the user for notifications before they're allowed.
+        // Without it, alerts won't work, and you'll get a console warning about
+        // "haven't received permission from the user to display alerts"
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert |
+            UIUserNotificationType.Badge, categories: nil))
+        
         let hvc = BNRHypnosisViewController()
         
         // Look in the appBundle for the file BNRReminderViewController.xib

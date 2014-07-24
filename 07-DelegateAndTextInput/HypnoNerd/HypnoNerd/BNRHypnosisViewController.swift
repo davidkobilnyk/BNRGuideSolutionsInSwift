@@ -86,9 +86,8 @@ class BNRHypnosisViewController: UIViewController, UITextFieldDelegate {
             let y = arc4random_uniform(height)
             
             // Update the label's frame
-            var frame = messageLabel.frame
-            frame.origin = CGPointMake(CGFloat(x), CGFloat(y));
-            messageLabel.frame = frame
+            messageLabel.frame.origin = CGPoint(x: CGFloat(UInt(x)), y: CGFloat(UInt(y)))
+            // Have to convert to UInt first before converting to CGFloat since beta 4
             
             // Add the label to the hierarchy
             self.view.addSubview(messageLabel)
