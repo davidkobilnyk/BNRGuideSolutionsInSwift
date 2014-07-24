@@ -11,7 +11,7 @@ import UIKit
 class BNRItemsViewController: UITableViewController {
     
     var _headerView: UIView?
-    @IBOutlet var headerView: UIView {
+    @IBOutlet var headerView: UIView! {
     get {
         if !_headerView {
             // Load HeaderView.xib
