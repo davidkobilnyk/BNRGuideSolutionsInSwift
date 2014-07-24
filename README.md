@@ -7,3 +7,5 @@ http://www.bignerdranch.com/we-write/ios-programming.html<br/>
 http://developer.apple.com/swift
 
 Chapter 3 is incomplete because deinit seems to be buggy in Xcode 6 beta 3.
+
+TODO: Need to update all of the projects for beta 4.
