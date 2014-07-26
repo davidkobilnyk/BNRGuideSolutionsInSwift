@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0D64EB44198404080003D1C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64EB43198404080003D1C1 /* AppDelegate.swift */; };
-		0D64EB46198404080003D1C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64EB45198404080003D1C1 /* ViewController.swift */; };
-		0D64EB49198404080003D1C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D64EB47198404080003D1C1 /* Main.storyboard */; };
 		0D64EB4B198404080003D1C1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D64EB4A198404080003D1C1 /* Images.xcassets */; };
 		0D64EB57198404080003D1C1 /* TouchTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64EB56198404080003D1C1 /* TouchTrackerTests.swift */; };
 		0D64EB61198404380003D1C1 /* BNRLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D64EB60198404380003D1C1 /* BNRLine.swift */; };
@@ -31,8 +29,6 @@
 		0D64EB3E198404080003D1C1 /* TouchTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D64EB42198404080003D1C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D64EB43198404080003D1C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0D64EB45198404080003D1C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0D64EB48198404080003D1C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D64EB4A198404080003D1C1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0D64EB50198404080003D1C1 /* TouchTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D64EB55198404080003D1C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,8 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				0D64EB43198404080003D1C1 /* AppDelegate.swift */,
-				0D64EB45198404080003D1C1 /* ViewController.swift */,
-				0D64EB47198404080003D1C1 /* Main.storyboard */,
 				0D64EB60198404380003D1C1 /* BNRLine.swift */,
 				0D64EB62198404960003D1C1 /* BNRDrawView.swift */,
 				0D64EB6419841DE00003D1C1 /* BNRDrawViewController.swift */,
@@ -198,7 +192,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D64EB49198404080003D1C1 /* Main.storyboard in Resources */,
 				0D64EB4B198404080003D1C1 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,7 +210,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D64EB46198404080003D1C1 /* ViewController.swift in Sources */,
 				0D64EB61198404380003D1C1 /* BNRLine.swift in Sources */,
 				0D64EB6519841DE00003D1C1 /* BNRDrawViewController.swift in Sources */,
 				0D64EB44198404080003D1C1 /* AppDelegate.swift in Sources */,
@@ -242,17 +234,6 @@
 			targetProxy = 0D64EB51198404080003D1C1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		0D64EB47198404080003D1C1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0D64EB48198404080003D1C1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		0D64EB58198404080003D1C1 /* Debug */ = {
