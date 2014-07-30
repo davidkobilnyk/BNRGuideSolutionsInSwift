@@ -24,7 +24,7 @@ class BNRQuizViewController: UIViewController {
         "Montpelier",
     ] // using default property values here instead of initializing in init
     
-    // @IBOutlet defaults data members as weak and implicitly unwrapped
+    // @IBOutlet defaults data members as weak
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var answerLabel: UILabel!
     
