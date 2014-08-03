@@ -9,7 +9,7 @@
 import UIKit
 
 class BNRReminderViewController: UIViewController {
-    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet private var datePicker: UIDatePicker! // private because BNR declares this in the .m file
     
     init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)

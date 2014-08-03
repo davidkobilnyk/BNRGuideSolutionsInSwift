@@ -9,7 +9,7 @@
 import UIKit
 
 class BNRHypnosisView: UIView {
-    var circleColor: UIColor = UIColor.lightGrayColor() {
+    private var circleColor: UIColor = UIColor.lightGrayColor() {
     didSet { // didSet replaces the need for writing a custom setCircleColor (in obj-c)
         self.setNeedsDisplay()
     }
