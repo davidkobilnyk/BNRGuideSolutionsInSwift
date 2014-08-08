@@ -28,11 +28,6 @@ class BNRQuizViewController: UIViewController {
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var answerLabel: UILabel!
     
-    // Need this init in order to load from xib
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
-        super.init(nibName: nibName, bundle: nibBundleOrNil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
