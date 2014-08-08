@@ -12,7 +12,7 @@ class BNRItem {
     var itemName: String
     var serialNumber: String
     var valueInDollars: Int
-    var dateCreated: NSDate
+    private(set) var dateCreated: NSDate
     var description: String { // Swift Computed property instead of method
         return "\(self.itemName) (\(self.serialNumber)): Worth $\(self.valueInDollars), recorded on \(self.dateCreated)"
     }

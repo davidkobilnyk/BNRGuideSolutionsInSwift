@@ -12,18 +12,9 @@ import Foundation
 var items: [BNRItem?]? = []
 
 var backpack: BNRItem? = BNRItem(itemName: "Backpack")
-// need to get a variable unwrapped items; using ! gives us a constant/immutable unwrapped items
-if var actualItems = items {
-    actualItems += backpack
-    // have to assign actualItems back to items because items wasn't actually modified
-    items = actualItems
-}
-
+items?.append(backpack)
 var calculator: BNRItem? = BNRItem(itemName: "Calculator")
-if var actualItems = items {
-    actualItems += calculator
-    items = actualItems
-}
+items?.append(calculator)
 
 backpack!.containedItem = calculator
 
