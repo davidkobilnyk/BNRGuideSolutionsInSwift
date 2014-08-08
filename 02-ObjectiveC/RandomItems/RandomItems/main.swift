@@ -11,7 +11,7 @@ import Foundation
 var items: [BNRItem] = []
 for _ in 0..<10 {
     let item = BNRItem.randomItem()
-    items += item
+    items.append(item)
 }
 
 for item in items {
