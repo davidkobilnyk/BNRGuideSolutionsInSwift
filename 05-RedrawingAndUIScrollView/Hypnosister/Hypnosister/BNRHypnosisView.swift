@@ -15,8 +15,18 @@ class BNRHypnosisView: UIView {
         }
     }
     
-    init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
+        // All BNRHypnosisViews start with a clear background color
+        self.backgroundColor = UIColor.clearColor()
+    }
+    
+    // Have to override this init too because overriding a designated init of a superclass
+    // requires overriding its required inits.
+    // This init is a designated init of NSCoding, a protocol implemented by UIView.
+    // We use the required keyword instead of the override keyword since it is a required method of NSCoding.
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
         // All BNRHypnosisViews start with a clear background color
         self.backgroundColor = UIColor.clearColor()
     }
