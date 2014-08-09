@@ -23,8 +23,12 @@ class BNRDetailViewController: UIViewController,
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var toolbar: UIToolbar!
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
+    override init() {
+        super.init(nibName: "BNRDetailViewController", bundle: nil)
+    }
+    
+    required init(coder aDecoder: NSCoder!) {
+        fatalError("NSCoding not supported")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,7 +46,7 @@ class BNRDetailViewController: UIViewController,
                 // variable in the middle of a function. class variables aren't available yet.
                 static var _dateFormatter: NSDateFormatter?
                 static var dateFormatter: NSDateFormatter {
-                    if !_dateFormatter {
+                    if _dateFormatter == nil {
                         _dateFormatter = NSDateFormatter()
                         // _dateFormatter is guaranteed to be non-nil here because we just
                         // initialized it. So we can use ! to force unwrap it.

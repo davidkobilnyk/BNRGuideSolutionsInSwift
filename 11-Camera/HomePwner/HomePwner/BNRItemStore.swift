@@ -9,18 +9,21 @@
 // For a discussion of the singleton pattern in Swift,
 // see https://github.com/hpique/SwiftSingleton/blob/master/README.md
 class BNRItemStore {
+    private(set) var allItems = [BNRItem]()
+    
     class var sharedStore: BNRItemStore {
-        struct Singleton {
-            static let singleInstance: BNRItemStore = BNRItemStore()
+    struct Singleton {
+        static let singleInstance: BNRItemStore = BNRItemStore()
         }
         return Singleton.singleInstance
     }
     
-    var allItems = [BNRItem]()
+    // It's impossible to instantiate this class outside of this file
+    private init() {}
     
     func createItem() -> BNRItem {
         let item = BNRItem.randomItem()
-        allItems += item
+        allItems += [item]
         return item
     }
     

@@ -10,14 +10,14 @@ import Foundation
 import UIKit
 
 class BNRImageStore {
+    private var dictionary = [String: UIImage]()
+    
     class var sharedStore: BNRImageStore {
         struct Singleton {
             static let singleInstance: BNRImageStore = BNRImageStore()
         }
         return Singleton.singleInstance
     }
-    
-    var dictionary = [String: UIImage]()
     
     func setImage(image: UIImage?, forKey key:String) {
         dictionary[key] = image

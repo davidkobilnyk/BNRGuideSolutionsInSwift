@@ -11,11 +11,11 @@ import UIKit
 class BNRItemsViewController: UITableViewController {
     
     // Need to add this init in in Swift, or you get "fatal error: use of unimplemented initializer 'init(nibName:bundle:)' for class"
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    init() {
+    override init() {
         super.init(style: UITableViewStyle.Plain)
         let navItem = self.navigationItem
         navItem.title = "Homepwner"
@@ -29,8 +29,14 @@ class BNRItemsViewController: UITableViewController {
         navItem.leftBarButtonItem = self.editButtonItem()
     }
     
-    convenience init(style: UITableViewStyle) {
+    override convenience init(style: UITableViewStyle) {
         self.init()
+    }
+    
+    // Without this, get error: "Class ‘BNRItemsViewController’ does not implement its
+    // superclass’s required members"
+    required init(coder aDecoder: NSCoder!) {
+        fatalError("NSCoding not supported")
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -17,8 +17,12 @@ class BNRDetailViewController: UIViewController {
     @IBOutlet var valueField: UITextField!
     @IBOutlet var dateLabel: UILabel!
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
+    override init() {
+        super.init(nibName: "BNRDetailViewController", bundle: nil)
+    }
+    
+    required init(coder aDecoder: NSCoder!) {
+        fatalError("NSCoding not supported")
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -29,19 +33,19 @@ class BNRDetailViewController: UIViewController {
             self.serialNumberField.text = item.serialNumber
             self.valueField.text = "\(item.valueInDollars)"
             
-            // You need a NSDateFormatter that will turn a date into a simple date string
+            // You need an NSDateFormatter that will turn a date into a simple date string
             // Objective-C: static NSDateFormatter *dateFormatter;
             struct StaticDateFormatter {
                 // This is probably overkill, but this code is a way to implement a static
                 // variable in the middle of a function. class variables aren't available yet.
                 static var _dateFormatter: NSDateFormatter?
                 static var dateFormatter: NSDateFormatter {
-                if !_dateFormatter {
-                    _dateFormatter = NSDateFormatter()
-                    // _dateFormatter is guaranteed to be non-nil here because we just
-                    // initialized it. So we can use ! to force unwrap it.
-                    _dateFormatter!.dateStyle = .MediumStyle
-                    _dateFormatter!.timeStyle = .NoStyle
+                    if _dateFormatter == nil {
+                        _dateFormatter = NSDateFormatter()
+                        // _dateFormatter is guaranteed to be non-nil here because we just
+                        // initialized it. So we can use ! to force unwrap it.
+                        _dateFormatter!.dateStyle = .MediumStyle
+                        _dateFormatter!.timeStyle = .NoStyle
                     }
                     // _dateFormatter is now guaranteed to be non-nil, either because it
                     // was already non-nil, or because we just initialized it.

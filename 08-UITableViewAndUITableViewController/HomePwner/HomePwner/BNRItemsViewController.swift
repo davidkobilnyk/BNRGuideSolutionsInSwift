@@ -9,13 +9,12 @@
 import UIKit
 
 class BNRItemsViewController: UITableViewController {
-    
     // Need to add this init in in Swift, or you get "fatal error: use of unimplemented initializer 'init(nibName:bundle:)' for class"
-    init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    init() {
+    override init() {
         super.init(style: UITableViewStyle.Plain)
         for _ in 0..<5 {
             BNRItemStore.sharedStore.createItem()
@@ -23,8 +22,15 @@ class BNRItemsViewController: UITableViewController {
         println("sizeof(Int) = \(sizeof(Int))")
     }
     
-    convenience init(style: UITableViewStyle) {
+    // seems odd to me to have this init call the other init -- not sure why BNR did this
+    override convenience init(style: UITableViewStyle) {
         self.init()
+    }
+    
+    // Without this, get error: "Class ‘BNRItemsViewController’ does not implement its 
+    // superclass’s required members"
+    required init(coder aDecoder: NSCoder!) {
+        fatalError("NSCoding not supported")
     }
     
     override func viewDidLoad() {
