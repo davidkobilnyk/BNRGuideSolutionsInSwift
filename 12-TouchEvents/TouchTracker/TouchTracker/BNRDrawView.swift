@@ -10,13 +10,17 @@ import Foundation
 import UIKit
 
 class BNRDrawView: UIView {
-    var linesInProgress = [NSValue: BNRLine]()
-    var finishedLines = [BNRLine]()
+    private var linesInProgress = [NSValue: BNRLine]()
+    private var finishedLines = [BNRLine]()
     
-    init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.grayColor()
         multipleTouchEnabled = true
+    }
+    
+    required init(coder aDecoder: NSCoder!) {
+        fatalError("NSCoding not supported")
     }
     
     func strokeLine(line: BNRLine) {
@@ -83,7 +87,7 @@ class BNRDrawView: UIView {
             let key = NSValue(nonretainedObject: t)
             
             if let line = linesInProgress[key] {
-                finishedLines += line
+                finishedLines += [line]
             }
             linesInProgress.removeValueForKey(key)
         }

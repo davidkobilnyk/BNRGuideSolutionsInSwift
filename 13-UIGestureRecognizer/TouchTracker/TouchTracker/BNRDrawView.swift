@@ -12,15 +12,15 @@ import UIKit
 class BNRDrawView: UIView, UIGestureRecognizerDelegate {
     // Can't appropriately initialize moveRecognizer before super.init because we
     // set target to self -- and self can't be used before super.init.
-    // So we give moveRecognizer an optional type, but implicitly unwrap it because
+    // So we give moveRecognizer an optional type, but make it implicitly unwrapped because
     // we know it will be initialized by the end of init.
-    let moveRecognizer: UIPanGestureRecognizer!
-    var linesInProgress = [NSValue: BNRLine]()
-    var finishedLines = [BNRLine]()
+    private let moveRecognizer: UIPanGestureRecognizer!
+    private var linesInProgress = [NSValue: BNRLine]()
+    private var finishedLines = [BNRLine]()
     
     weak var selectedLine: BNRLine?
     
-    init(frame: CGRect) {
+    override init(frame: CGRect) {
         
         super.init(frame: frame)
         
@@ -45,6 +45,10 @@ class BNRDrawView: UIView, UIGestureRecognizerDelegate {
         moveRecognizer.delegate = self
         moveRecognizer.cancelsTouchesInView = false
         addGestureRecognizer(moveRecognizer)
+    }
+    
+    required init(coder aDecoder: NSCoder!) {
+        fatalError("NSCoding not supported")
     }
     
     override func canBecomeFirstResponder() -> Bool {
@@ -141,7 +145,7 @@ class BNRDrawView: UIView, UIGestureRecognizerDelegate {
             let point = gr.locationInView(self)
             selectedLine = lineAtPoint(point)
             
-            if selectedLine {
+            if selectedLine != nil {
                 linesInProgress.removeAll(keepCapacity: true)
             }
         } else if gr.state == .Ended {
@@ -163,7 +167,7 @@ class BNRDrawView: UIView, UIGestureRecognizerDelegate {
         let point = gr.locationInView(self)
         selectedLine = lineAtPoint(point)
         
-        if selectedLine {
+        if selectedLine != nil {
             
             // Make ourselves the target of menu item action messages
             becomeFirstResponder()
@@ -196,7 +200,7 @@ class BNRDrawView: UIView, UIGestureRecognizerDelegate {
         selectedLine = lineAtPoint(point)
         
         // Show a action menu bar when user selects a line
-        if selectedLine {
+        if selectedLine != nil {
             // Make ourselves the target of menu item action messages
             becomeFirstResponder()
             let menu = UIMenuController.sharedMenuController()
@@ -262,7 +266,7 @@ class BNRDrawView: UIView, UIGestureRecognizerDelegate {
             let key = NSValue(nonretainedObject: t)
             
             if let line = linesInProgress[key] {
-                finishedLines += line
+                finishedLines += [line]
             }
             linesInProgress.removeValueForKey(key)
         }
