@@ -9,10 +9,10 @@
 import Foundation
 
 class BNRItem {
-    var itemName: String
-    var serialNumber: String
-    var valueInDollars: Int
-    private(set) var dateCreated: NSDate
+    let itemName: String
+    let serialNumber: String
+    let valueInDollars: Int
+    let dateCreated: NSDate
     var description: String { // Swift Computed property instead of method
         return "\(self.itemName) (\(self.serialNumber)): Worth $\(self.valueInDollars), recorded on \(self.dateCreated)"
     }
