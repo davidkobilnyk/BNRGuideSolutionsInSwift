@@ -9,8 +9,8 @@
 import UIKit
 
 class BNRHypnosisViewController: UIViewController {
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    override init() {
+        super.init(nibName: "BNRHypnosisViewController", bundle: nil)
         
         // Set the tab bar item's title
         self.tabBarItem.title = "Hypnotize"
@@ -23,8 +23,9 @@ class BNRHypnosisViewController: UIViewController {
         // Put that image on the tab bar item
         self.tabBarItem.image = image
     }
-    convenience init() {
-        self.init(nibName: nil, bundle: nil)
+    
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
     }
     
     override func loadView()  {

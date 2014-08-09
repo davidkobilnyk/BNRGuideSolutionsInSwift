@@ -11,8 +11,8 @@ import UIKit
 class BNRReminderViewController: UIViewController {
     @IBOutlet private var datePicker: UIDatePicker! // private because BNR declares this in the .m file
     
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    override init() {
+        super.init(nibName: "BNRReminderViewController", bundle: nil)
         
         // Set the tab bar item's title
         self.tabBarItem.title = "Reminder";
@@ -24,8 +24,9 @@ class BNRReminderViewController: UIViewController {
         // Put that image on the tab bar item
         self.tabBarItem.image = image;
     }
-    convenience init() {
-        self.init(nibName: nil, bundle: nil)
+    
+    required init(coder aDecoder: NSCoder!) {
+        fatalError("NSCoding not implemented")
     }
     
     override func viewDidLoad() {

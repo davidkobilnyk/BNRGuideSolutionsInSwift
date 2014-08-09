@@ -15,10 +15,14 @@ class BNRHypnosisView: UIView {
     }
     }
     
-    init(frame: CGRect) {
+    override init(frame: CGRect) {
         super.init(frame: frame)
         // All BNRHypnosisViews start with a clear background color
         self.backgroundColor = UIColor.clearColor()
+    }
+    
+    required init(coder aDecoder: NSCoder!) {
+        super.init(coder: aDecoder)
     }
     
     // Only override drawRect: if you perform custom drawing.

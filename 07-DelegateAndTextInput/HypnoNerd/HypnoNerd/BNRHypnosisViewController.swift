@@ -10,8 +10,8 @@ import UIKit
 
 class BNRHypnosisViewController: UIViewController, UITextFieldDelegate {
     // ^ protocol is listed together with superclass, but superclass must be listed first
-    init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    override init() {
+        super.init(nibName: "BNRHypnosisViewController", bundle: nil)
         
         // Set the tab bar item's title
         self.tabBarItem.title = "Hypnotize"
@@ -24,8 +24,9 @@ class BNRHypnosisViewController: UIViewController, UITextFieldDelegate {
         // Put that image on the tab bar item
         self.tabBarItem.image = image
     }
-    convenience init() {
-        self.init(nibName: nil, bundle: nil)
+    
+    required init(coder aDecoder: NSCoder!) {
+        fatalError("NSCoding not implemented")
     }
     
     override func loadView()  {
