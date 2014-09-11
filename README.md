@@ -1,9 +1,7 @@
 BNRGuideSolutionsInSwift
 ============
 
-Converting the Objective-C solutions of iOS Programming: The Big Nerd Ranch Guide, 4th Edition to Swift.
+Converting the Objective-C solutions of <a href="http://www.bignerdranch.com/we-write/ios-programming.html">iOS Programming: The Big Nerd Ranch Guide, 4th Edition</a> to Swift.
 
-http://www.bignerdranch.com/we-write/ios-programming.html<br/>
-http://developer.apple.com/swift
+Updated to work in Xcode 6 GM
 
-Updated to work in beta 5
