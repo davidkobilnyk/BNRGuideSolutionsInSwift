@@ -21,7 +21,7 @@ class BNRHypnosisView: UIView {
         self.backgroundColor = UIColor.clearColor()
     }
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -56,7 +56,7 @@ class BNRHypnosisView: UIView {
         path.stroke()
     }
     
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         println("Touch began on \(self)")
         
         // Get 3 random numbers between 0 and 1

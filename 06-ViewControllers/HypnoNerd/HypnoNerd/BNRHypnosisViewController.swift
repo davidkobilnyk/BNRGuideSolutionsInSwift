@@ -24,7 +24,7 @@ class BNRHypnosisViewController: UIViewController {
         self.tabBarItem.image = image
     }
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     

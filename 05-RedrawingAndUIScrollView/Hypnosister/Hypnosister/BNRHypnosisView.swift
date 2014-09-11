@@ -25,7 +25,7 @@ class BNRHypnosisView: UIView {
     // requires overriding its required inits.
     // This init is a designated init of NSCoding, a protocol implemented by UIView.
     // We use the required keyword instead of the override keyword since it is a required method of NSCoding.
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         // All BNRHypnosisViews start with a clear background color
         self.backgroundColor = UIColor.clearColor()
@@ -63,7 +63,7 @@ class BNRHypnosisView: UIView {
         path.stroke()
     }
     
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         print("Touch began on \(self)")
         
         // Get 3 random numbers between 0 and 1

@@ -25,7 +25,7 @@ class BNRHypnosisViewController: UIViewController, UITextFieldDelegate {
         self.tabBarItem.image = image
     }
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not implemented")
     }
     

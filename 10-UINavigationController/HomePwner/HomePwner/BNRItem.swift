@@ -26,20 +26,20 @@ class BNRItem {
         //in Swift than in Objective-C. Sticking closer to Objective-C's way
         //didn't work for me and in fact caused Xcode to halt ("Building..."
         //forever). But I don't know -- maybe there's an easier way.
-        func randomLetter() -> Character {
+        func randomLetter() -> String {
             // Originally I coded a more generic function that took a starting
             //character and number of characters. But oddly UnicodeScalarValue
             //is only working on literals for me -- not on variables.
             let startingUnicodeScalarValue = UnicodeScalarValue("A")
             let numberOfLetters = 26
             let randomUnicodeScalarValue = Int(startingUnicodeScalarValue) + Int(rand()) % numberOfLetters
-            return Character(UnicodeScalar(randomUnicodeScalarValue))
+            return String(UnicodeScalar(randomUnicodeScalarValue))
         }
-        func randomDigit() -> Character {
+        func randomDigit() -> String {
             let startingUnicodeScalarValue = UnicodeScalarValue("0")
             let numberOfPossibleDigits = 10
             let randomUnicodeScalarValue = Int(startingUnicodeScalarValue) + Int(rand()) % numberOfPossibleDigits
-            return Character(UnicodeScalar(randomUnicodeScalarValue))
+            return String(UnicodeScalar(randomUnicodeScalarValue))
         }
         
         // Create an array of three adjectives

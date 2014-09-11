@@ -29,7 +29,7 @@ class BNRItemsViewController: UITableViewController {
     
     // Without this, get error: "Class ‘BNRItemsViewController’ does not implement its 
     // superclass’s required members"
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
@@ -40,11 +40,11 @@ class BNRItemsViewController: UITableViewController {
         tableView!.registerClass(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
     }
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int)->Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int)->Int {
         return BNRItemStore.sharedStore.allItems.count
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Get a new or recycled cell
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("UITableViewCell") as UITableViewCell
         
@@ -54,7 +54,7 @@ class BNRItemsViewController: UITableViewController {
         
         let item = BNRItemStore.sharedStore.allItems[indexPath.row]
         
-        cell.textLabel.text = item.description
+        cell.textLabel?.text = item.description
         
         return cell
     }

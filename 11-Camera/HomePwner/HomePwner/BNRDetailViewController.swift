@@ -27,7 +27,7 @@ class BNRDetailViewController: UIViewController,
         super.init(nibName: "BNRDetailViewController", bundle: nil)
     }
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     

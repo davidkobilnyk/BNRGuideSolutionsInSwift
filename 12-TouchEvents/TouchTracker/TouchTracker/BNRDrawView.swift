@@ -19,7 +19,7 @@ class BNRDrawView: UIView {
         multipleTouchEnabled = true
     }
     
-    required init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
@@ -46,7 +46,7 @@ class BNRDrawView: UIView {
         }
     }
     
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         // Let's put in a log statement to see the order of events
         NSLog("%@", __FUNCTION__) // no _cmd in Swift; use __FUNCTION__ instead
         
@@ -64,7 +64,7 @@ class BNRDrawView: UIView {
         setNeedsDisplay()
     }
     
-    override func touchesMoved(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         // Let's put in a log statement to see the order of events
         NSLog("%@", __FUNCTION__)
         
@@ -79,7 +79,7 @@ class BNRDrawView: UIView {
         setNeedsDisplay()
     }
     
-    override func touchesEnded(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
         // Let's put in a log statement to see the order of events
         NSLog("%@", __FUNCTION__)
         
