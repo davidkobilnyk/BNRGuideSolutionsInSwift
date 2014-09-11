@@ -5,5 +5,5 @@ Converting the Objective-C solutions of <a target="_blank" href="http://www.bign
 
 Updated to work in Xcode 6 GM
 
-Learn more about Swift at <a href="learnswift.ly">learnswift.ly</a>.
+Learn more about Swift at <a href="http://learnswift.ly">learnswift.ly</a>.
 
