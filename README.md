@@ -1,4 +1,4 @@
-BNRGuideSolutionsInSwift
+BNRGuideSolutionsInSwift (OUTDATED)
 ============
 
 NOTE: The Swift code in this project is very outdated.
